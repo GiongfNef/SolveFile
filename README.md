@@ -1,4 +1,4 @@
-**Detail**
+# Detail:
 
 I put all solve_file which i've learned and written. some of them i write for CTF challenges, other ones i've gained from online course.
 
