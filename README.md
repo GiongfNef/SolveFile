@@ -1,6 +1,6 @@
 # Detail:
 
-I put all solve_file which i've learned and written. some of them i wrote for CTF challenges, other ones i gained from online courses.
+I put all solve_file which i've learned and written, some of them i wrote for CTF challenges, other ones i gained from online courses.
 
 # solve_Scottish Flag.sage
 
