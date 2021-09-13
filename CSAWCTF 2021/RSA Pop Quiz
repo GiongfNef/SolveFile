@@ -1,0 +1,39 @@
+from pwn import * 
+from Crypto.Util.number import *
+
+p= remote("crypto.chal.csaw.io", 5008)
+p.recvuntil("What is the plaintext?")
+p.sendline('Wiener wiener chicken dinner') 
+p.recvuntil("What is the plaintext?")
+p.sendline('Who came up with this math term anyway?') 
+p.recvuntil("Part 3 --> Looks like there is a oracle which is telling the LSB of the plaintext. That will not help you, right?")
+
+message = p.recvuntil("\r\nWhat would you like to decrypt? (please respond with an integer)\r\n",drop= True).decode('utf-8')
+n = message.split('= ')
+N = int(n[1][:-4])
+c = int(n[3][:-2])
+
+i = 1
+flag = ""
+upper_limit = N
+lower_limit = 0
+while i<=1030:
+	s = (c*pow(2**i,65537,N))%N
+	p.sendline(str(s))
+	mes = p.recvuntil("\r\nWould you like to continue? (yes/no)\r\n",drop= True).decode('utf-8')
+	
+	if 'The oracle responds with: 1' in mes:
+		lower_limit = (lower_limit + upper_limit)//2
+	elif 'The oracle responds with: 0' in mes:
+		upper_limit = (upper_limit + lower_limit)//2
+	else:
+		break
+		print ("Unsuccessfull")
+	print(upper_limit, i)
+	p.sendline('1')
+	p.recvuntil("What would you like to decrypt? (please respond with an integer)")
+	i+=1
+	print ("Flag : ", long_to_bytes(lower_limit))
+
+p.interactive()
+# key3: "Totally did not mean to put an oracle there"
