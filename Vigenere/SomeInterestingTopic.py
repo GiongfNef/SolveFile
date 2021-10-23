@@ -1,6 +1,6 @@
 # Use Python code Vigener cipher which was wrong when i encoded in lowwer-case letters ?
 
-#on some fucking clear day, i decide to code Vigenere cipher again? and some interting mistake were found.
+# On some fucking clear day, i decide to code Vigenere cipher again? and some interting mistake were found.
 
 # With upper-case letters 
 
