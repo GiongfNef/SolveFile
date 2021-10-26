@@ -69,27 +69,21 @@ with open('output.txt') as f:
 # author: https://github.com/hjklien/writeups/tree/main/2021/ASIS%20CTF%20Quals/Crypto%20Warm%20up
             
   # My code
-
 with open('output.txt') as f:
     enc = f.read()[6:]
-
-  
-    p = len(enc)
-
-    for s in range(8563, p-1):
-
-        msg = [''] * p
-
-        for i in range(p-1):
-            msg[pow(s,i,p)] = enc[i+1]
-
-
-        msg = 'A' + ''.join(msg)
-        msg = msg.encode()
-        if b'ASIS{' in msg:
-        	print(msg)
-        	break
-        print(s)
+p = len(enc)
+print(enc)
+for s in range(9900,p-1):
+    flag = ['']*p
+    for i in range(p-1):
+        flag[pow(s, i, p)] = enc[i+1]
+        
+    flag = 'A' + ''.join(flag)
+    flag = flag.encode()
+    if b'ASIS' in flag:
+    	print(flag)
+    	break
+    print(s)
 
 # maybe you can find ASIS{_how_dFC.YptZTh1S?h0mx_m4d;_lGD_w;dr\_CUYpI0_5J2T3+?k!!!*Z} when s = 8562 but it stil wrong
 # the correct one is ASIS{_how_d3CrYpt_Th1S_h0m3_m4dE_anD_wEird_CrYp70_5yST3M?!!!!!!} when s = 10927
