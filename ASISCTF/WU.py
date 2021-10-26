@@ -91,7 +91,8 @@ with open('output.txt') as f:
         	break
         print(s)
 
-        
+# maybe you can find ASIS{_how_dFC.YptZTh1S?h0mx_m4d;_lGD_w;dr\_CUYpI0_5J2T3+?k!!!*Z} when s = 8562 but it stil wrong
+# the correct one is ASIS{_how_d3CrYpt_Th1S_h0m3_m4dE_anD_wEird_CrYp70_5yST3M?!!!!!!} when s = 10927
         
             
             
