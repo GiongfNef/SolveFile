@@ -65,6 +65,31 @@ with open('output.txt') as f:
         if match is not None:
             print(match.group())
             
+  # My code
+
+with open('output.txt') as f:
+    enc = f.read()[6:]
+
+  
+    p = len(enc)
+
+    for s in range(8563, p-1):
+
+        msg = [''] * p
+
+        for i in range(p-1):
+            msg[pow(s,i,p)] = enc[i+1]
+
+
+        msg = 'A' + ''.join(msg)
+        msg = msg.encode()
+        if b'ASIS{' in msg:
+        	print(msg)
+        	break
+        print(s)
+
+        
+        
             
             
             
