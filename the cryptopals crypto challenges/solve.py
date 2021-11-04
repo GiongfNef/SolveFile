@@ -50,3 +50,39 @@ m = bytes.fromhex('1b37373331363f78151b7f2b783431333d78397828372d363c78373e783a3
 for _ in alpha:
     key = generateKey(m,_)
     print(xor_bytes(key.encode(),m))
+
+# b"Cooking MC's like a pound of bacon"
+	
+	
+# Challenges  Set 1  Challenge 4
+
+import string
+
+def generateKey(string, key):
+    key = list(key)
+    if len(string) == len(key):
+        return(key)
+    else:
+        for i in range(len(string) -
+                       len(key)):
+            key.append(key[i % len(key)])
+    return("" . join(key))
+def xor_bytes(key_stream, message):
+    length = min(len(key_stream), len(message))
+    return bytes([key_stream[i] ^ message[i] for i in range(length)])
+
+alpha = string.printable
+with open('set1chall3.txt') as f:
+    m = f.read() 
+for line in m.split('\n'):        
+    m = bytes.fromhex(line)
+    for _ in alpha:
+        key = generateKey(m,_)
+        print('========================')
+        print(xor_bytes(key.encode(),m))
+        print(line, _)
+	
+#b'Now that the party is jumping\n'
+#7b5a4215415d544115415d5015455447414c155c46155f4058455c5b523f 5
+#========================
+    
