@@ -28,3 +28,25 @@ mess1 = unhexlify("1c0111001f010100061a024b53535009181c")
 mess2 = unhexlify("686974207468652062756c6c277320657965")
 print(XOR(mess1,mess2).hex())
 
+# Challenges  Set 1  Challenge 3
+
+import string
+
+def generateKey(string, key):
+    key = list(key)
+    if len(string) == len(key):
+        return(key)
+    else:
+        for i in range(len(string) -
+                       len(key)):
+            key.append(key[i % len(key)])
+    return("" . join(key))
+def xor_bytes(key_stream, message):
+    length = min(len(key_stream), len(message))
+    return bytes([key_stream[i] ^ message[i] for i in range(length)])
+
+alpha = string.printable
+m = bytes.fromhex('1b37373331363f78151b7f2b783431333d78397828372d363c78373e783a393b3736')
+for _ in alpha:
+    key = generateKey(m,_)
+    print(xor_bytes(key.encode(),m))
