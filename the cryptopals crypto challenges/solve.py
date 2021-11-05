@@ -86,3 +86,27 @@ for line in m.split('\n'):
 #7b5a4215415d544115415d5015455447414c155c46155f4058455c5b523f 5
 #========================
     
+	
+	
+# Challenges  Set 1  Challenge 5
+import string
+
+def generateKey(string, key):
+    key = list(key)
+    if len(string) == len(key):
+        return(key)
+    else:
+        for i in range(len(string) -
+                       len(key)):
+            key.append(key[i % len(key)])
+    return("" . join(key))
+def xor_bytes(key_stream, message):
+    length = min(len(key_stream), len(message))
+    return bytes([key_stream[i] ^ message[i] for i in range(length)])
+
+alpha = string.printable
+m = "Burning 'em, if you ain't quick and nimble I go crazy when I hear a cymbal"
+key = 'ICE'
+key = generateKey(m,key)
+
+print(xor_bytes(key.encode(), m.encode()).hex())
