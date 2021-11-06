@@ -110,3 +110,19 @@ key = 'ICE'
 key = generateKey(m,key)
 
 print(xor_bytes(key.encode(), m.encode()).hex())
+
+
+# Challenges  Set 1  Challenge 7
+from Crypto.Cipher import AES
+
+import base64 
+
+with open('set1chall7.txt') as f:
+    ciphertext = f.read()
+
+key = b'YELLOW SUBMARINE'
+cipher = AES.new(key, AES.MODE_ECB)
+ciphertext = base64.b64decode(ciphertext)
+#print(ciphertext)
+plaintext = cipher.decrypt(ciphertext)
+print(plaintext)
