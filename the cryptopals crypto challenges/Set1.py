@@ -126,3 +126,31 @@ ciphertext = base64.b64decode(ciphertext)
 #print(ciphertext)
 plaintext = cipher.decrypt(ciphertext)
 print(plaintext)
+
+
+# Challenges  Set 1  Challenge 8
+
+from Crypto.Cipher import AES
+
+import base64 
+
+with open('set1chall8.txt') as f:
+	ciphertext = f.read()
+cnt = 0
+
+def detect_ecb_mode(str1, keyLength):
+	blocks = len(str1) // keyLength
+	for i in range (blocks):
+		strA = str1[i*keyLength: i*keyLength + 16]
+		for j in range (i+1,blocks):
+			strB = str1[j*keyLength: j*keyLength + 16]
+			if(strA == strB):
+				return 1
+	return 0
+
+for line in ciphertext.split('\n'):
+	if detect_ecb_mode(bytes.fromhex(line), 16) == 1:
+		print('Here', line)
+	cnt += 1
+	print(cnt)
+
