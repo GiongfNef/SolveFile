@@ -22,3 +22,5 @@ d = pow(e,-1,phi)
 m = hex(decrypt(enc_flag, d))[2:]
 a_string = bytes.fromhex(m)
 print(a_string)
+source: https://bomotodo.wordpress.com/2016/11/07/svattt-vong-loai-otp-chatbot-400-diem/?fbclid=IwAR065IduOGH88AZ0YftcvVPtILioVKC2LM8EgCWkVdxvRCtdoY0ghqRn_zM
+        
