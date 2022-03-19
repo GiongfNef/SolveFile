@@ -86,7 +86,7 @@ print('Flag: ',decryptVigenereCipher(cipher,key))
 
 # encrypt:  flvlbyvk
 # Flag:  uxahqkag  -> so may be this wrong huh? The answer is that we should minus ord() of plantext for ord('97') before try to encode it. Because we need to calculate from 0 to 25
-# the upper case letter is true bcs ord('A') = 65 is luckily divisible by 26 so it start from 0 to 25 -> how excited right?
+# the upper case letter is true bcs ord('A') = 65 is luckily divisible by  so it start from 0 to 25 -> how excited right?
 # the correct code:
 
 from string import ascii_lowercase
